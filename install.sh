@@ -79,6 +79,7 @@ fi
 # Downloading artifact
 mkdir -p "${BIN_FOLDER}"
 if hash curl >/dev/null 2>&1; then
+  echo "RELEASE_URL: ${RELEASE_URL}\nBIN FOLDER: ${BIN_FOLDER}/micromamba\nCURL_OPTS: ${CURL_OPTS:-}"
   curl "${RELEASE_URL}" -o "${BIN_FOLDER}/micromamba" -fsSL --compressed ${CURL_OPTS:-}
 elif hash wget >/dev/null 2>&1; then
   wget ${WGET_OPTS:-} -qO "${BIN_FOLDER}/micromamba" "${RELEASE_URL}"
